@@ -1,9 +1,9 @@
 ## 实现一个promise 
 
 ### Promise构造函数
-1、promise内部维护唯一的status值，初始状态下为'PENDING'，成功状态下为'RESOLVE'，失败状态为'REJECT'，其状态只能由'PENDING'-> 'RESOLVE' / 'PENDING' -> 'REJECT'。
-2、promise是一个构造函数，其内部存储着唯一的成功的``value``值与失败的``resaon``值，以及成功的回调函数队列和失败的回调函数队列。
-3、promise构造函函数的参数为一个执行函数，将传入两个内置函数，resolve/reject，用来执行成功或失败的回调函数队列。
+- promise内部维护唯一的status值，初始状态下为'PENDING'，成功状态下为'RESOLVE'，失败状态为'REJECT'，其状态只能由'PENDING'-> 'RESOLVE' / 'PENDING' -> 'REJECT'。
+- promise是一个构造函数，其内部存储着唯一的成功的``value``值与失败的``resaon``值，以及成功的回调函数队列和失败的回调函数队列。
+- promise构造函函数的参数为一个执行函数，将传入两个内置函数，resolve/reject，用来执行成功或失败的回调函数队列。
 
 ```javascript
 function Promise(executor) {
@@ -37,9 +37,9 @@ function Promise(executor) {
 ```
 
 ### Promise then方法
-1、``promise then``接收的参数为函数，分别为成功后后的函数执行器和失败后的函数执行器。
-2、全局的``value``和``reson``值将作为参数，传递给成功后的函数执行器和失败后的函数执行器。所以then的参数函数将会接收异步处理的结果。
-3、为了实现promise的链式调用，每一个``then``方法将返回一个新的``Promise实例``.
+- ``promise then``接收的参数为函数，分别为成功后后的函数执行器和失败后的函数执行器。
+- 全局的``value``和``reson``值将作为参数，传递给成功后的函数执行器和失败后的函数执行器。所以then的参数函数将会接收异步处理的结果。
+- 为了实现promise的链式调用，每一个``then``方法将返回一个新的``Promise实例``.
 
 ```javascript
 function resolvePromise(x, executor, promise2) {
